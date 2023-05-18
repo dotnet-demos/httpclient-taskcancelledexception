@@ -1,18 +1,11 @@
-# Template project for .Net console demo applications with menu
+# Demos difference between HttpClient Timeout in .Net Framework and .Net 6
+
+# How to Run
+
+There are 2 test projects. One is .Net Framework 4.8 and other .Net 6. Run the tests in those. 
 
 # Specifications
 
-- .Net version - .Net 6
+- .Net version - .Net Framework 4.8 & .Net 6
 - Nugets referenced
-	- DotNet.Helpers
-	- easyconsolestd
-	- Microsoft.Extensions.Hosting
-
-# Dependency injection
-
-- Supported. Refer the [Program.cs](/src/Program.cs) file for more details
-- The options are injected as dependency to the [MenuService](/src/MenuService.cs then those are invoked based on selection. 
-
-# Other interesting console templates
-
-- [https://github.com/superwalnut/dotnet-console-app-template](https://github.com/superwalnut/dotnet-console-app-template)
+	- coverlet.collector
