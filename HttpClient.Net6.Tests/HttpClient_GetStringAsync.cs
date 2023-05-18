@@ -18,19 +18,11 @@ namespace HttpClient.Net6.Tests
             {
                 await httpClient.GetStringAsync("https://joymons.free.beeceptor.com/delay"); //Anonymous url responds after 10 seconds delay.
             }
-            catch (AggregateException aex) // This is not hitting .Net Framework & .Net 6
-            {
-                foreach (var ex in aex.InnerExceptions)
-                {
-                    PrintExceptionRecursive(ex);
-                }
-            }
             catch (TaskCanceledException tex)
             {
                 if (tex.InnerException is TimeoutException)
                 {
                     //Comes here in .Net Core 3.1+ and .Net. Not in .Net Core Below 3.1 and in whole .Net Framework
-
                     Console.WriteLine($"{tex.GetType()}:{tex.Message}");
                     var timeoutEx = tex.InnerException as TimeoutException;
                     Console.WriteLine($"{timeoutEx.GetType()}:{timeoutEx.Message}");
@@ -43,6 +35,13 @@ namespace HttpClient.Net6.Tests
                         Console.WriteLine($"{tex.GetType()}:Safely assuming its timeout as IsCancellationRequested = false");
                     }
                     PrintExceptionRecursive(tex);
+                }
+            }
+            catch (AggregateException aex) // This is not hitting .Net Framework & .Net 6
+            {
+                foreach (var ex in aex.InnerExceptions)
+                {
+                    PrintExceptionRecursive(ex);
                 }
             }
             catch (Exception ex)

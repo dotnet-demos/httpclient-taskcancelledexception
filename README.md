@@ -4,6 +4,12 @@
 
 There are 2 test projects. One is .Net Framework 4.8 and other .Net 6. Run the tests in those. 
 
+## Output .Net 4.8
+![.Net 4.8 showing no inner TimeoutExeption](/images/01-net48.png)
+
+## Output .Net 6
+![.Net 6 showing inner TimeoutExeption](/images/02-net6.png)
+
 # Specifications
 
 - .Net version - .Net Framework 4.8 & .Net 6
